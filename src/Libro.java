@@ -7,9 +7,10 @@ public class Libro{
     private String titolo = null;
     private String genere = null;
     private String numPagine = null;
-    private String segnalibro = null;
+    private String segnalibro = "Libro già letto";
     private Boolean haiLetto = null;
     private List<String> tagLibro = new ArrayList<>();
+    private List<String> tagLibroToLowerCase = new ArrayList<>();
     public static final List<String> tagDisponibili = new ArrayList<>(Arrays.asList
             ("Ambiente e Animali",
             "Architettura Design e Moda",
@@ -38,9 +39,9 @@ public class Libro{
             "Sport",
             "Storia e Biografie")
     );
-    private String riassunto = null;
-    private String recensione = null;
-    private String voto = null;
+    private String riassunto = "Nessun riassunto";
+    private String recensione = "Nessuna recensione";
+    private String voto = "Voto non dato";
     public static final List<String> votiDisponibili = new ArrayList<>(Arrays.asList("1", "2", "3", "4", "5"));
 
     public void setTitolo(String titolo) {
@@ -65,6 +66,9 @@ public class Libro{
 
     public void setTagLibro(String tagLibro) {
         this.tagLibro.add(tagLibro);
+    }
+    public void setTagLibroToLowerCase(String tagLibroToLowerCase) {
+        this.tagLibroToLowerCase.add(tagLibroToLowerCase);
     }
     public void setRiassunto(String riassunto) {
         this.riassunto = riassunto;
@@ -101,6 +105,9 @@ public class Libro{
     public List<String> getTagLibro() {
         return tagLibro;
     }
+    public List<String> getTagLibroToLowerCase() {
+        return tagLibroToLowerCase;
+    }
     public String getRiassunto() {
         return riassunto;
     }
@@ -111,5 +118,18 @@ public class Libro{
 
     public String getVoto() {
         return voto;
+    }
+
+    @Override
+    public String toString() {
+        return "Titolo: " + titolo + '\n' +
+                "Genere: " + genere + '\n' +
+                "Numero di pagine=: " + numPagine + '\n' +
+                "Segnalibro: " + segnalibro + '\n' +
+                "L'hai Letto?: " + haiLetto + '\n' +
+                "Tag: " + tagLibro + '\n' +
+                "Riassunto: " + riassunto + '\n' +
+                "Recensione: " + recensione + '\n' +
+                "Voto: " + voto;
     }
 }
